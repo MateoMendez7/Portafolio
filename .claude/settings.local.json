@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(Start-Process \"C:\\\\Users\\\\iscma\\\\Desktop\\\\Curriculum\\\\index.html\")"
+    ]
+  }
+}

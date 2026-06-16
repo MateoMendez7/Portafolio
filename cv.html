@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>CV · Mateo de la Cruz Méndez — Ingeniero de Software</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --ink:#1a2233;--muted:#5b6678;--soft:#8893a6;
+    --brand:#2563eb;--brand-2:#7c3aed;--accent:#0891b2;
+    --line:#e4e8ef;--bg:#eef1f6;--side:#0f1830;
+    --grad:linear-gradient(135deg,#2563eb,#7c3aed);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Inter',system-ui,sans-serif;color:var(--ink);background:var(--bg);line-height:1.5;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  h1,h2,h3,.f{font-family:'Sora',sans-serif;letter-spacing:-.01em}
+
+  .toolbar{position:sticky;top:0;z-index:10;background:#fff;border-bottom:1px solid var(--line);padding:10px 0;text-align:center}
+  .toolbar .wrap{display:flex;gap:12px;justify-content:center;align-items:center;flex-wrap:wrap}
+  .toolbar span{color:var(--muted);font-size:.85rem}
+  .tb-btn{background:var(--grad);color:#fff;border:0;padding:9px 20px;border-radius:9px;font-weight:600;cursor:pointer;font-size:.9rem;font-family:'Sora'}
+  .tb-btn:hover{filter:brightness(1.08)}
+  .tb-ghost{background:#fff;color:var(--ink);border:1px solid var(--line)}
+  .tb-ghost:hover{border-color:var(--brand);color:var(--brand)}
+
+  .page{width:210mm;min-height:297mm;margin:18px auto;background:#fff;display:grid;grid-template-columns:74mm 1fr;box-shadow:0 10px 40px -10px rgba(0,0,0,.25);overflow:hidden}
+
+  /* Sidebar */
+  .side{background:var(--side);color:#dfe5f0;padding:32px 24px}
+  .avatar{width:96px;height:96px;border-radius:22px;background:var(--grad);display:grid;place-items:center;font-family:'Sora';font-weight:800;font-size:2.4rem;color:#fff;margin-bottom:18px;box-shadow:0 12px 30px -10px #7c3aed}
+  .side h1{font-size:1.5rem;font-weight:800;color:#fff;line-height:1.15}
+  .side .title{color:#7fb0ff;font-weight:600;font-size:.95rem;margin-top:4px;margin-bottom:22px}
+  .side h2{font-size:.8rem;text-transform:uppercase;letter-spacing:.12em;color:#7fb0ff;margin:22px 0 12px;padding-bottom:7px;border-bottom:1px solid rgba(255,255,255,.12)}
+  .ct{display:flex;gap:9px;align-items:flex-start;font-size:.82rem;color:#cbd4e4;margin-bottom:9px;word-break:break-word}
+  .ct svg{width:15px;height:15px;stroke:#7fb0ff;fill:none;stroke-width:1.8;flex-shrink:0;margin-top:2px}
+  .skill-block{margin-bottom:14px}
+  .skill-block .lbl{font-size:.78rem;font-weight:600;color:#fff;margin-bottom:7px}
+  .sk{display:flex;flex-wrap:wrap;gap:5px}
+  .sk span{font-size:.7rem;background:rgba(127,176,255,.14);border:1px solid rgba(127,176,255,.25);color:#dfe9fb;padding:3px 8px;border-radius:6px}
+  .lang-row{display:flex;justify-content:space-between;font-size:.8rem;color:#cbd4e4;margin-bottom:7px}
+  .dots{display:flex;gap:4px;align-items:center}
+  .dots i{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.2)}
+  .dots i.on{background:#7fb0ff}
+
+  /* Main */
+  .main{padding:32px 30px}
+  .sec{margin-bottom:22px}
+  .sec-title{display:flex;align-items:center;gap:10px;font-size:.92rem;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:var(--brand);margin-bottom:14px}
+  .sec-title .bar{width:26px;height:3px;background:var(--grad);border-radius:3px}
+  .summary{font-size:.88rem;color:var(--muted);line-height:1.65}
+  .summary b{color:var(--ink)}
+
+  .job{margin-bottom:16px;position:relative;padding-left:18px}
+  .job::before{content:"";position:absolute;left:0;top:5px;width:9px;height:9px;border-radius:50%;background:var(--brand);box-shadow:0 0 0 3px rgba(37,99,235,.15)}
+  .job::after{content:"";position:absolute;left:4px;top:16px;bottom:-8px;width:1.5px;background:var(--line)}
+  .job:last-child::after{display:none}
+  .job .top{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap}
+  .job .role{font-family:'Sora';font-weight:700;font-size:.98rem}
+  .job .date{font-size:.74rem;color:var(--soft);font-weight:500;white-space:nowrap}
+  .job .co{color:var(--brand);font-weight:600;font-size:.85rem;margin:1px 0 6px}
+  .job p{font-size:.82rem;color:var(--muted);line-height:1.55}
+  .job .tech{font-size:.74rem;color:var(--soft);margin-top:5px}
+  .job .tech b{color:var(--ink);font-weight:600}
+
+  .edu{margin-bottom:13px}
+  .edu .d{font-family:'Sora';font-weight:700;font-size:.9rem}
+  .edu .i{font-size:.81rem;color:var(--muted)}
+  .edu .y{font-size:.74rem;color:var(--soft);font-weight:500}
+  .certs{display:flex;flex-wrap:wrap;gap:8px}
+  .cert{font-size:.78rem;background:#f3f5fa;border:1px solid var(--line);border-radius:8px;padding:6px 11px;color:var(--ink)}
+  .cert b{color:var(--brand)}
+
+  @media print{
+    .toolbar{display:none}
+    body{background:#fff}
+    .page{margin:0;box-shadow:none;width:100%;min-height:auto}
+    @page{size:A4;margin:0}
+  }
+  @media(max-width:780px){
+    .page{grid-template-columns:1fr;width:100%;margin:0}
+  }
+</style>
+</head>
+<body>
+<div class="toolbar">
+  <div class="wrap">
+    <span data-i18n="tb_hint">Para guardar como PDF: presiona el botón o usa Ctrl/Cmd + P → «Guardar como PDF»</span>
+    <button class="tb-btn tb-ghost" id="langBtn">EN</button>
+    <button class="tb-btn" onclick="window.print()" data-i18n="tb_download">🖨️ Descargar PDF</button>
+  </div>
+</div>
+
+<div class="page">
+  <aside class="side">
+    <div class="avatar">MC</div>
+    <h1>Mateo de la Cruz Méndez</h1>
+    <div class="title" data-i18n="title">Ingeniero de Software · Full Stack .NET</div>
+
+    <h2 data-i18n="h_contact">Contacto</h2>
+    <div class="ct"><svg viewBox="0 0 24 24"><path d="M4 6h16v12H4z"/><path d="m4 7 8 6 8-6"/></svg> iscmateomendez@gmail.com</div>
+    <div class="ct"><svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z"/></svg> 993 383 0193</div>
+    <div class="ct"><svg viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg> <span data-i18n="loc">Nacajuca, Villahermosa, Tabasco · México</span></div>
+
+    <h2 data-i18n="h_stack">Stack técnico</h2>
+    <div class="skill-block">
+      <div class="lbl" data-i18n="sk_backend">Backend</div>
+      <div class="sk"><span>C# .NET</span><span>.NET Core</span><span>VB.NET</span><span>Java</span><span>Spring Boot</span><span>ASP.NET MVC</span><span>Entity Framework</span><span>LINQ</span><span>Web Services</span><span>API REST</span><span>NestJS</span><span>Node.js</span></div>
+    </div>
+    <div class="skill-block">
+      <div class="lbl" data-i18n="sk_frontend">Frontend</div>
+      <div class="sk"><span>Vue.js</span><span>Angular</span><span>React</span><span>PrimeVue / PrimeNG</span><span>TypeScript</span><span>JavaScript ES6</span><span>jQuery</span><span>Bootstrap</span></div>
+    </div>
+    <div class="skill-block">
+      <div class="lbl" data-i18n="sk_db">Bases de datos</div>
+      <div class="sk"><span>SQL Server</span><span data-i18n="t_sp">Stored Procedures</span><span>Oracle</span><span>MySQL</span><span>MariaDB</span></div>
+    </div>
+    <div class="skill-block">
+      <div class="lbl" data-i18n="sk_tools">Herramientas & métodos</div>
+      <div class="sk"><span>Git</span><span>Visual Studio</span><span>VS Code</span><span>Swagger</span><span>Scrum</span><span>Linux</span><span data-i18n="t_ai">IA (apoyo)</span><span>Claude</span><span>GitHub Copilot</span><span>Cursor</span><span>Codex</span><span>Gemini</span></div>
+    </div>
+    <div class="skill-block">
+      <div class="lbl" data-i18n="sk_net">Redes & Infraestructura</div>
+      <div class="sk"><span data-i18n="t_dns">Servidor DNS (Unbound)</span><span>MikroTik / RouterOS</span><span data-i18n="t_ookla">Servidor Ookla Speedtest</span></div>
+    </div>
+
+    <h2 data-i18n="h_langs">Idiomas</h2>
+    <div class="lang-row"><span data-i18n="l_es">Español</span><span class="dots"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span></div>
+    <div class="lang-row"><span data-i18n="l_en">Inglés</span><span class="dots"><i class="on"></i><i class="on"></i><i></i><i></i><i></i></span></div>
+  </aside>
+
+  <main class="main">
+    <section class="sec">
+      <div class="sec-title"><span class="bar"></span> <span data-i18n="h_profile">Perfil profesional</span></div>
+      <p class="summary" data-i18n="summary">Ingeniero de Software con <b>más de 12 años de experiencia</b> desarrollando aplicaciones empresariales de extremo a extremo. Especialista en <b>C# .NET, .NET Core, VB.NET y SQL Server</b> en el backend, y <b>Vue.js, Angular y React</b> (con componentes <b>PrimeVue / PrimeNG</b>) en el frontend. Actualmente con <b>5 años en DaCodes</b> asignado a <b>Azzule</b>, desarrollando una suite internacional de certificación de alimentos bajo metodología <b>Scrum</b>. Integro la <b>IA como herramienta de productividad</b>, conservando plena autonomía técnica para trabajar sin ella.</p>
+    </section>
+
+    <section class="sec">
+      <div class="sec-title"><span class="bar"></span> <span data-i18n="h_exp">Experiencia profesional</span></div>
+      <div id="jobs"><!-- Generado desde CONFIG.jobs --></div>
+    </section>
+
+    <section class="sec">
+      <div class="sec-title"><span class="bar"></span> <span data-i18n="h_edu">Formación académica</span></div>
+      <div class="edu">
+        <div class="d" data-i18n="edu_msc_t">Maestría en Tecnologías de Información y Comunicación</div>
+        <div class="i" data-i18n="edu_msc_i">Especialidad en Desarrollo de Software — Instituto Tecnológico de Villahermosa</div>
+        <div class="y">2015 — 2017</div>
+      </div>
+      <div class="edu">
+        <div class="d" data-i18n="edu_bsc_t">Ingeniería en Sistemas Computacionales</div>
+        <div class="i" data-i18n="edu_bsc_i">Instituto Tecnológico de Villahermosa</div>
+        <div class="y">2009 — 2013</div>
+      </div>
+    </section>
+
+    <section class="sec">
+      <div class="sec-title"><span class="bar"></span> <span data-i18n="h_certs">Certificaciones & formación continua</span></div>
+      <div class="certs">
+        <span class="cert"><b>Scrum Master Certified</b> · VMEdu Inc. (2016)</span>
+        <span class="cert"><b>Scrum Fundamentals Certified (SFC)</b> · VMEdu Inc. (2016)</span>
+        <span class="cert"><b>Claude & NestJS</b> · Fernando Herrera <span data-i18n="in_progress">(en curso)</span></span>
+        <span class="cert">Angular Pro · Udemy</span>
+        <span class="cert" data-i18n="cert_db">Diseño de Bases de Datos Relacionales · Udemy</span>
+      </div>
+    </section>
+  </main>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/i18next@23.11.5/dist/umd/i18next.min.js"></script>
+<script>
+/* =========================================================================
+   ⚙️  CONFIGURACIÓN EDITABLE — Modifica solo esta sección
+   ========================================================================= */
+const CONFIG = {
+  hireDate: '2021-05-17',      // 📅 Contratación en DaCodes / Azzule (ajusta el año al confirmar)
+  careerStart: '2013-01-21',   // 📅 Inicio de carrera profesional
+  jobs: [
+    {
+      current:true, since:'2021-05-17',
+      roleES:'Ingeniero de Software', roleEN:'Software Engineer',
+      companyES:'DaCodes · Asignado a Azzule', companyEN:'DaCodes · Assigned to Azzule',
+      descES:'Desarrollo, configuración y soporte de la suite de sistemas de certificación de alimentos y auditorías: IntegralSystem, IntegralSystem_Utilities, OnlineAuditPortal, AuditClientPortal, WsNotifications y ExcelTool. Diseño e implementación de plantillas de certificación de alimentos y productos.',
+      descEN:'Development, configuration and support of the food-certification and audit systems suite: IntegralSystem, IntegralSystem_Utilities, OnlineAuditPortal, AuditClientPortal, WsNotifications and ExcelTool. Design and implementation of food and product certification templates.',
+      techES:'C# .NET · .NET Core · VB.NET · ASP.NET MVC · SQL Server · Vue.js · JavaScript · Web Services',
+      techEN:'C# .NET · .NET Core · VB.NET · ASP.NET MVC · SQL Server · Vue.js · JavaScript · Web Services'
+    },
+    {
+      dateES:'Mar 2020 — Dic 2020', dateEN:'Mar 2020 — Dec 2020',
+      roleES:'Full Stack Developer', roleEN:'Full Stack Developer',
+      companyES:'Azzait', companyEN:'Azzait',
+      descES:'Gestor documental con integración a Google, sistema colaborativo con módulo de administración y tablero ejecutivo para detección de oportunidades.',
+      descEN:'Document manager with Google integration, a collaborative system with an admin module, and an executive dashboard for opportunity detection.',
+      techES:'Angular · API REST .NET · Python (Dash)', techEN:'Angular · API REST .NET · Python (Dash)'
+    },
+    {
+      dateES:'Jul 2016 — Mar 2020', dateEN:'Jul 2016 — Mar 2020',
+      roleES:'Full Stack Developer', roleEN:'Full Stack Developer',
+      companyES:'Spacyoc · Dycren · Ionobis', companyEN:'Spacyoc · Dycren · Ionobis',
+      descES:'Sistema de operaciones financieras (SOFI): créditos, dispersión, cobranza, inversión y contabilidad. ADDIN administrador de inversiones, y plataformas web de ventas y registro de personal de salud.',
+      descEN:'Financial operations system (SOFI): loans, disbursement, collections, investment and accounting. The ADDIN investment manager, plus web platforms for sales and healthcare-staff registration.',
+      techES:'PHP · Laravel · MariaDB · JavaScript · jQuery · Linux', techEN:'PHP · Laravel · MariaDB · JavaScript · jQuery · Linux'
+    },
+    {
+      dateES:'2013 — 2016', dateEN:'2013 — 2016',
+      roleES:'Desarrollador de Software', roleEN:'Software Developer',
+      companyES:'Integra IT · Secretaría de Salud Pública · ABUCU', companyEN:'Integra IT · Ministry of Health · ABUCU',
+      descES:'Proyectos para el sector petrolero (PEMEX): cumplimiento regulatorio y plataforma colaborativa. Sistemas de gestión de recursos, verificación y validación, lecciones aprendidas, control de personal y autenticación biométrica por huella digital.',
+      descEN:'Projects for the oil & gas sector (PEMEX): regulatory compliance and a collaborative platform. Resource-management, verification & validation, lessons-learned, staff-control and fingerprint biometric-authentication systems.',
+      techES:'ASP.NET · Telerik · Entity Framework · Oracle · PHP · HighCharts', techEN:'ASP.NET · Telerik · Entity Framework · Oracle · PHP · HighCharts'
+    }
+  ]
+};
+
+const resources = {
+  es:{ translation:{
+    tb_hint:'Para guardar como PDF: presiona el botón o usa Ctrl/Cmd + P → «Guardar como PDF»', tb_download:'🖨️ Descargar PDF',
+    title:'Ingeniero de Software · Full Stack .NET', h_contact:'Contacto', loc:'Nacajuca, Villahermosa, Tabasco · México',
+    h_stack:'Stack técnico', sk_backend:'Backend', sk_frontend:'Frontend', sk_db:'Bases de datos', sk_tools:'Herramientas & métodos', sk_net:'Redes & Infraestructura',
+    t_sp:'Stored Procedures', t_ai:'IA (apoyo)', t_dns:'Servidor DNS (Unbound)', t_ookla:'Servidor Ookla Speedtest',
+    h_langs:'Idiomas', l_es:'Español', l_en:'Inglés',
+    h_profile:'Perfil profesional',
+    summary:'Ingeniero de Software con <b>más de {{total}} años de experiencia</b> desarrollando aplicaciones empresariales de extremo a extremo. Especialista en <b>C# .NET, .NET Core, VB.NET y SQL Server</b> en el backend, y <b>Vue.js, Angular y React</b> (con componentes <b>PrimeVue / PrimeNG</b>) en el frontend. Actualmente con <b>{{tenure}} años en DaCodes</b> asignado a <b>Azzule</b>, desarrollando una suite internacional de certificación de alimentos bajo metodología <b>Scrum</b>. Integro la <b>IA como herramienta de productividad</b>, conservando plena autonomía técnica para trabajar sin ella.',
+    h_exp:'Experiencia profesional', present:'Actualidad', year_one:'año', year_other:'años', tech_label:'Tecnologías',
+    h_edu:'Formación académica', edu_msc_t:'Maestría en Tecnologías de Información y Comunicación', edu_msc_i:'Especialidad en Desarrollo de Software — Instituto Tecnológico de Villahermosa',
+    edu_bsc_t:'Ingeniería en Sistemas Computacionales', edu_bsc_i:'Instituto Tecnológico de Villahermosa',
+    h_certs:'Certificaciones & formación continua', in_progress:'(en curso)', cert_db:'Diseño de Bases de Datos Relacionales · Udemy'
+  }},
+  en:{ translation:{
+    tb_hint:'To save as PDF: click the button or use Ctrl/Cmd + P → “Save as PDF”', tb_download:'🖨️ Download PDF',
+    title:'Software Engineer · Full Stack .NET', h_contact:'Contact', loc:'Nacajuca, Villahermosa, Tabasco · Mexico',
+    h_stack:'Tech stack', sk_backend:'Backend', sk_frontend:'Frontend', sk_db:'Databases', sk_tools:'Tools & methods', sk_net:'Networks & Infrastructure',
+    t_sp:'Stored Procedures', t_ai:'AI (support)', t_dns:'DNS server (Unbound)', t_ookla:'Ookla Speedtest server',
+    h_langs:'Languages', l_es:'Spanish', l_en:'English',
+    h_profile:'Professional profile',
+    summary:'Software Engineer with <b>over {{total}} years of experience</b> building end-to-end enterprise applications. Specialist in <b>C# .NET, .NET Core, VB.NET and SQL Server</b> on the backend, and <b>Vue.js, Angular and React</b> (with <b>PrimeVue / PrimeNG</b> components) on the frontend. Currently with <b>{{tenure}} years at DaCodes</b> assigned to <b>Azzule</b>, developing an international food-certification suite under the <b>Scrum</b> methodology. I leverage <b>AI as a productivity tool</b>, keeping full technical autonomy to work without it.',
+    h_exp:'Professional experience', present:'Present', year_one:'year', year_other:'years', tech_label:'Technologies',
+    h_edu:'Education', edu_msc_t:'MSc in Information and Communication Technologies', edu_msc_i:'Software Development specialty — Instituto Tecnológico de Villahermosa',
+    edu_bsc_t:'BSc in Computer Systems Engineering', edu_bsc_i:'Instituto Tecnológico de Villahermosa',
+    h_certs:'Certifications & continuous learning', in_progress:'(in progress)', cert_db:'Relational Database Design · Udemy'
+  }}
+};
+
+const MONTHS = { es:['Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Dic'],
+                 en:['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'] };
+function yearsSince(iso){
+  const s=new Date(iso), n=new Date();
+  let y=n.getFullYear()-s.getFullYear();
+  const m=n.getMonth()-s.getMonth();
+  if(m<0 || (m===0 && n.getDate()<s.getDate())) y--;
+  return Math.max(0,y);
+}
+const tenureYears=yearsSince(CONFIG.hireDate), totalYears=yearsSince(CONFIG.careerStart);
+
+function renderJobs(lang){
+  const box=document.getElementById('jobs');
+  const ylabel=(y)=> y===1 ? i18next.t('year_one') : i18next.t('year_other');
+  box.innerHTML = CONFIG.jobs.map(j=>{
+    const role=lang==='es'?j.roleES:j.roleEN;
+    let company=lang==='es'?j.companyES:j.companyEN;
+    let date;
+    if(j.current){
+      const d=new Date(j.since);
+      date=`${MONTHS[lang][d.getMonth()]} ${d.getFullYear()} — ${i18next.t('present')}`;
+      const y=yearsSince(j.since);
+      company += ` · ${y} ${ylabel(y)}`;
+    } else { date=lang==='es'?j.dateES:j.dateEN; }
+    const desc=lang==='es'?j.descES:j.descEN;
+    const tech=lang==='es'?j.techES:j.techEN;
+    return `<div class="job">
+        <div class="top"><span class="role">${role}</span><span class="date">${date}</span></div>
+        <div class="co">${company}</div>
+        <p>${desc}</p>
+        <div class="tech"><b>${i18next.t('tech_label')}:</b> ${tech}</div>
+      </div>`;
+  }).join('');
+}
+
+let lang=(()=>{ try{ return localStorage.getItem('lang')||'es'; }catch(e){ return 'es'; } })();
+function updateDOM(){
+  const vars={ total:totalYears, tenure:tenureYears };
+  document.querySelectorAll('[data-i18n]').forEach(el=>{ el.innerHTML=i18next.t(el.getAttribute('data-i18n'),vars); });
+  renderJobs(lang);
+  document.documentElement.lang=lang;
+  document.getElementById('langBtn').textContent = lang==='es' ? 'EN' : 'ES';
+}
+function boot(){
+  if(typeof i18next==='undefined'){ renderJobs(lang); return; }
+  i18next.init({ lng:lang, fallbackLng:'es', resources, interpolation:{escapeValue:false} }, updateDOM);
+  document.getElementById('langBtn').addEventListener('click',()=>{
+    lang = lang==='es'?'en':'es';
+    try{ localStorage.setItem('lang',lang); }catch(e){}
+    i18next.changeLanguage(lang, updateDOM);
+  });
+}
+boot();
+</script>
+</body>
+</html>
