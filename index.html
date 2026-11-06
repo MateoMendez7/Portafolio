@@ -158,6 +158,43 @@
   .proj .pico{width:46px;height:46px;border-radius:12px;background:rgba(56,189,248,.1);border:1px solid rgba(56,189,248,.2);display:grid;place-items:center;font-size:1.3rem;margin-bottom:16px}
   .proj h3{font-size:1.08rem;margin-bottom:8px}
   .proj p{color:var(--muted);font-size:.9rem;margin-bottom:14px}
+  .proj .btn{margin-top:16px;padding:9px 16px;font-size:.86rem}
+  .proj-head{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
+  .proj-group{grid-column:1/-1;display:flex;align-items:center;gap:14px;font-family:'JetBrains Mono',monospace;font-size:.78rem;color:var(--muted);letter-spacing:.04em;margin-top:22px}
+  .proj-group::after{content:"";flex:1;height:1px;background:var(--line)}
+  .proj-row3{grid-column:1/-1;display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .role{display:inline-flex;align-items:center;gap:7px;font-family:'JetBrains Mono',monospace;font-size:.7rem;padding:4px 10px;border-radius:100px;border:1px solid var(--line);color:var(--muted);white-space:nowrap}
+  .role .pulse{width:7px;height:7px;border-radius:50%;background:var(--accent);animation:pulse 2s infinite}
+  .role.creator{color:var(--accent);border-color:rgba(52,211,153,.35);background:rgba(52,211,153,.08)}
+  .role.collab{color:#b9a8ff;border-color:rgba(124,92,255,.35);background:rgba(124,92,255,.08)}
+  .role.private{color:var(--brand-3);border-color:rgba(34,211,238,.3);background:rgba(34,211,238,.06)}
+
+  /* Featured case: FTTH */
+  .feat{grid-column:1/-1;display:grid;grid-template-columns:1.05fr 1fr;gap:32px;padding:32px;border-color:rgba(34,211,238,.22);position:relative;overflow:hidden}
+  .feat::before{content:"";position:absolute;top:-45%;left:-15%;width:560px;height:560px;background:radial-gradient(circle,rgba(34,211,238,.13),transparent 60%);pointer-events:none}
+  .feat>*{position:relative}
+  .feat-badges{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px}
+  .feat h3{font-size:1.7rem;margin-bottom:10px}
+  .feat-facts{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:14px 22px;margin:22px 0 20px}
+  .feat-facts li{font-size:.84rem;color:var(--muted);padding-left:12px;border-left:2px solid rgba(34,211,238,.4)}
+  .feat-facts b{display:block;color:var(--txt);font-family:'Sora',sans-serif;font-size:.92rem;margin-bottom:2px}
+  .feat-actions{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-top:22px}
+  .feat-actions .btn{margin-top:0}
+  .feat-host{font-family:'JetBrains Mono',monospace;font-size:.72rem;color:var(--muted)}
+  .pon{align-self:center;background:rgba(7,11,22,.65) linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px) 0 0/22px 22px;border:1px solid var(--line);border-radius:14px;padding:18px 16px 12px}
+  .pon svg{width:100%;height:auto;display:block}
+  .pon .fiber{fill:none;stroke:rgba(34,211,238,.22);stroke-width:2}
+  .pon .light{fill:none;stroke:var(--brand-3);stroke-width:2.6;stroke-linecap:round;stroke-dasharray:8 90;animation:flow 2.6s linear infinite;filter:drop-shadow(0 0 4px #22d3ee)}
+  .pon .light.d2{animation-delay:.9s}
+  .pon .node{fill:var(--card);stroke:var(--brand-3);stroke-width:1.5}
+  .pon .node.spl{stroke:var(--brand-2)}
+  .pon text{font-family:'JetBrains Mono',monospace;font-size:9px;fill:var(--muted)}
+  .pon .lbl{fill:var(--txt);font-size:9.5px}
+  .pon .rx{fill:var(--accent);font-size:10.5px;font-weight:500}
+  .pon-cap{display:flex;justify-content:space-between;gap:10px;font-family:'JetBrains Mono',monospace;font-size:.72rem;color:var(--muted);margin-top:10px;border-top:1px solid var(--line);padding-top:10px}
+  .pon-cap .ok{color:var(--accent)}
+  @keyframes flow{to{stroke-dashoffset:-98}}
+  @media(prefers-reduced-motion:reduce){.pon .light{animation:none;stroke-dasharray:none;opacity:.55}.role .pulse{animation:none}}
 
   /* Contact */
   .contact{text-align:center;background:linear-gradient(180deg,var(--card),var(--card-2));border:1px solid var(--line);border-radius:28px;padding:56px 28px;box-shadow:var(--shadow);position:relative;overflow:hidden}
@@ -203,7 +240,8 @@
 
   /* Responsive */
   @media(max-width:860px){
-    .about,.skill-grid,.proj-grid{grid-template-columns:1fr}
+    .about,.skill-grid,.proj-grid,.proj-row3,.feat,.feat-facts{grid-template-columns:1fr}
+    .feat{padding:24px}
     .stats{grid-template-columns:repeat(2,1fr)}
     nav ul,.nav-cta .btn-ghost{display:none}
     .burger{display:flex}
@@ -379,6 +417,80 @@
   <div class="wrap">
     <div class="sec-head reveal"><span class="sec-tag" data-i18n="proj_tag">// 04 — Proyectos destacados</span><h2 data-i18n="proj_title">Trabajo seleccionado</h2></div>
     <div class="proj-grid">
+      <article class="proj feat reveal">
+        <div>
+          <div class="feat-badges"><span class="role creator" data-i18n="role_creator">Creador · desarrollado desde cero</span><span class="role creator"><span class="pulse"></span> <span data-i18n="role_live">En producción</span></span></div>
+          <h3>FTTH Planner</h3>
+          <p data-i18n="ftth_p">Plataforma SaaS para <b>diseñar redes de fibra óptica FTTH/GPON</b> sobre un mapa y calcular su <b>presupuesto óptico</b> en vivo. En cada tramo el diseñador elige qué splitter colocar —balanceado o desbalanceado— y el motor compara las opciones y recomienda la mejor.</p>
+          <ul class="feat-facts">
+            <li data-i18n="ftth_f1"><b>Motor óptico propio</b>Sustituye la hoja de cálculo del ISP y la reproduce con pruebas de referencia.</li>
+            <li data-i18n="ftth_f2"><b>Mapa + PWA offline</b>Edición geográfica e importación KMZ; funciona en campo sin señal.</li>
+            <li data-i18n="ftth_f3"><b>Multiempresa seguro</b>PostgreSQL + PostGIS con Row-Level Security por empresa.</li>
+            <li data-i18n="ftth_f4"><b>Arquitectura hexagonal</b>Monorepo TypeScript con TDD y más de 700 pruebas automatizadas.</li>
+          </ul>
+          <div class="tl-tags"><span class="tag">TypeScript</span><span class="tag">NestJS</span><span class="tag">React</span><span class="tag">MapLibre</span><span class="tag">PostGIS</span><span class="tag">PWA</span></div>
+          <div class="feat-actions">
+            <a href="https://ftth.jemartinez.dev" class="btn btn-primary" target="_blank" rel="noopener" data-i18n="ftth_cta">Abrir FTTH Planner ↗</a>
+            <span class="feat-host" data-i18n="ftth_host">Alojado temporalmente en ftth.jemartinez.dev</span>
+          </div>
+        </div>
+        <figure class="pon">
+          <svg viewBox="0 0 360 215" role="img" aria-labelledby="ponTitle">
+            <title id="ponTitle" data-i18n="pon_title">Red PON de ejemplo: la OLT alimenta un splitter desbalanceado 70/30 y dos cajas NAP; ambas ONT reciben potencia dentro del presupuesto.</title>
+            <path class="fiber" d="M58 110H140"/><path class="fiber" d="M160 110C192 110 192 50 224 50H250"/><path class="fiber" d="M160 110C192 110 192 170 224 170H250"/><path class="fiber" d="M272 50H312"/><path class="fiber" d="M272 170H312"/>
+            <path class="light" d="M58 110H140"/><path class="light d2" d="M160 110C192 110 192 50 224 50H250"/><path class="light d2" d="M160 110C192 110 192 170 224 170H250"/><path class="light" d="M272 50H312"/><path class="light" d="M272 170H312"/>
+            <rect class="node" x="14" y="94" width="44" height="32" rx="6"/><text class="lbl" x="36" y="114" text-anchor="middle">OLT</text><text x="36" y="142" text-anchor="middle">+3.0 dBm</text>
+            <circle class="node spl" cx="150" cy="110" r="10"/><text class="lbl" x="150" y="138" text-anchor="middle">SPL 70/30</text>
+            <text x="200" y="70">70%</text><text x="200" y="158">30%</text>
+            <rect class="node" x="250" y="40" width="22" height="20" rx="4"/><text class="lbl" x="261" y="31" text-anchor="middle">NAP 1:8</text>
+            <rect class="node" x="250" y="160" width="22" height="20" rx="4"/><text class="lbl" x="261" y="197" text-anchor="middle">NAP 1:4</text>
+            <rect class="node" x="312" y="42" width="34" height="16" rx="4"/><text x="329" y="53" text-anchor="middle">ONT</text><text class="rx" x="346" y="78" text-anchor="end">−11.1 dBm</text>
+            <rect class="node" x="312" y="162" width="34" height="16" rx="4"/><text x="329" y="173" text-anchor="middle">ONT</text><text class="rx" x="346" y="197" text-anchor="end">−13.4 dBm</text>
+          </svg>
+          <figcaption class="pon-cap"><span data-i18n="pon_cap">Presupuesto por ramal</span><span class="ok">Rx ≥ −27 dBm ✓</span></figcaption>
+        </figure>
+      </article>
+
+      <div class="proj-group reveal" data-i18n="grp_collab">Colaboraciones</div>
+      <div class="proj reveal">
+        <div class="proj-head"><div class="pico">💌</div><span class="role collab" data-i18n="role_collab">Colaboración</span></div>
+        <h3 data-i18n="inv_t">Invitaciones Digitales</h3>
+        <p data-i18n="inv_p">Plataforma para crear invitaciones de boda, XV años o bautizo: el cliente elige plantilla y tema, llena sus datos con vista previa en vivo, paga y publica su invitación en su propio subdominio.</p>
+        <div class="tl-tags"><span class="tag">Astro</span><span class="tag">SolidJS</span><span class="tag">Hono · Bun</span><span class="tag">PostgreSQL</span><span class="tag">Tailwind</span></div>
+      </div>
+      <div class="proj reveal">
+        <div class="proj-head"><div class="pico">🧰</div><span class="role collab" data-i18n="role_collab">Colaboración</span></div>
+        <h3 data-i18n="proj5_t">SIGEFOR — Gestión de Fornituras</h3>
+        <p data-i18n="proj5_p">Sistema de gestión de fornituras (insumos y refacciones) con trazabilidad por <b>código QR</b>, construido con IA usando <b>Claude Code</b> como par de programación.</p>
+        <div class="tl-tags"><span class="tag">Angular</span><span class="tag">Ionic</span><span class="tag">.NET</span><span class="tag">SQL Server</span><span class="tag">Claude Code</span><span class="tag" data-i18n="proj5_wip">En progreso</span></div>
+      </div>
+
+      <div class="proj-group reveal" data-i18n="grp_private">Sistemas propios · demo privada bajo solicitud</div>
+      <div class="proj-row3">
+        <div class="proj reveal">
+          <div class="proj-head"><div class="pico">📡</div><span class="role private" data-i18n="role_private">Demo privada</span></div>
+          <h3 data-i18n="wisp_t">WispRoute</h3>
+          <p data-i18n="wisp_p">SaaS multiempresa para proveedores de internet (ISP/WISP): red MikroTik, clientes, facturación, cobranza, inventario, tickets y pagos, con app móvil para técnicos y cobradores.</p>
+          <div class="tl-tags"><span class="tag">NestJS</span><span class="tag">Angular</span><span class="tag">Flutter</span><span class="tag">PostgreSQL</span><span class="tag">MikroTik</span></div>
+          <a href="https://wa.me/529933830193" class="btn btn-ghost" target="_blank" rel="noopener" data-wa="529933830193" data-wa-msg="wa_demo_wisp"><svg viewBox="0 0 24 24" aria-hidden="true" style="width:16px;height:16px"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" fill="none" stroke="currentColor" stroke-width="2"/></svg> <span data-i18n="demo_btn">Solicitar demo</span></a>
+        </div>
+        <div class="proj reveal">
+          <div class="proj-head"><div class="pico">🧾</div><span class="role private" data-i18n="role_private">Demo privada</span></div>
+          <h3 data-i18n="vpay_t">ValiPago</h3>
+          <p data-i18n="vpay_p">Validación de pagos por transferencia: el cliente sube su comprobante, el dueño lo valida y caja emite el recibo en PDF o ticket térmico.</p>
+          <div class="tl-tags"><span class="tag">NestJS</span><span class="tag">Angular</span><span class="tag">PWA</span></div>
+          <a href="https://wa.me/529933830193" class="btn btn-ghost" target="_blank" rel="noopener" data-wa="529933830193" data-wa-msg="wa_demo_vpay"><svg viewBox="0 0 24 24" aria-hidden="true" style="width:16px;height:16px"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" fill="none" stroke="currentColor" stroke-width="2"/></svg> <span data-i18n="demo_btn">Solicitar demo</span></a>
+        </div>
+        <div class="proj reveal">
+          <div class="proj-head"><div class="pico">🤝</div><span class="role private" data-i18n="role_private">Demo privada</span></div>
+          <h3 data-i18n="loan_t">Préstamos y ventas a plazos</h3>
+          <p data-i18n="loan_p">Administración de préstamos y ventas financiadas: ofertas y firma de acuerdos, calendario de pagos, portal del deudor y avisos por WhatsApp.</p>
+          <div class="tl-tags"><span class="tag">NestJS</span><span class="tag">React</span><span class="tag">PostgreSQL</span></div>
+          <a href="https://wa.me/529933830193" class="btn btn-ghost" target="_blank" rel="noopener" data-wa="529933830193" data-wa-msg="wa_demo_loan"><svg viewBox="0 0 24 24" aria-hidden="true" style="width:16px;height:16px"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" fill="none" stroke="currentColor" stroke-width="2"/></svg> <span data-i18n="demo_btn">Solicitar demo</span></a>
+        </div>
+      </div>
+
+      <div class="proj-group reveal" data-i18n="grp_work">Proyectos empresariales</div>
       <div class="proj reveal">
         <div class="pico">🥗</div>
         <h3 data-i18n="proj1_t">Suite de Certificación Azzule</h3>
@@ -402,12 +514,6 @@
         <h3 data-i18n="proj4_t">ADDIN — Administrador de Inversiones</h3>
         <p data-i18n="proj4_p">Control y administración de inversionistas, inversiones, comisiones y pagos de capital para una firma de inversión.</p>
         <div class="tl-tags"><span class="tag">C# .NET</span><span class="tag">SQL Server</span></div>
-      </div>
-      <div class="proj reveal">
-        <div class="pico">🧰</div>
-        <h3 data-i18n="proj5_t">SIGEFOR — Gestión de Fornituras</h3>
-        <p data-i18n="proj5_p">Proyecto personal en desarrollo: sistema de gestión de fornituras (insumos y refacciones) construido íntegramente con IA usando <b>Claude Code</b> como par de programación.</p>
-        <div class="tl-tags"><span class="tag">Angular</span><span class="tag">Ionic</span><span class="tag">.NET</span><span class="tag">SQL Server</span><span class="tag">Claude Code</span><span class="tag" data-i18n="proj5_wip">En progreso</span></div>
       </div>
     </div>
   </div>
@@ -552,7 +658,24 @@ const resources = {
     proj2_t:'SOFI — Operaciones Financieras', proj2_p:'Sistema integral para control de créditos, dispersión, cobranza, inversión y contabilidad de una operadora financiera.',
     proj3_t:'Cumplimiento Regulatorio — PEMEX', proj3_p:'Plataforma de cumplimiento regulatorio y sistema colaborativo para el sector petrolero, con reportes y visualizaciones avanzadas.',
     proj4_t:'ADDIN — Administrador de Inversiones', proj4_p:'Control y administración de inversionistas, inversiones, comisiones y pagos de capital para una firma de inversión.',
-    proj5_t:'SIGEFOR — Gestión de Fornituras', proj5_p:'Proyecto personal en desarrollo: sistema de gestión de fornituras (insumos y refacciones) construido íntegramente con IA usando <b>Claude Code</b> como par de programación.', proj5_wip:'En progreso',
+    proj5_t:'SIGEFOR — Gestión de Fornituras', proj5_p:'Sistema de gestión de fornituras (insumos y refacciones) con trazabilidad por <b>código QR</b>, construido con IA usando <b>Claude Code</b> como par de programación.', proj5_wip:'En progreso',
+    role_creator:'Creador · desarrollado desde cero', role_live:'En producción', role_collab:'Colaboración', role_private:'Demo privada',
+    grp_collab:'Colaboraciones', grp_private:'Sistemas propios · demo privada bajo solicitud', grp_work:'Proyectos empresariales',
+    ftth_p:'Plataforma SaaS para <b>diseñar redes de fibra óptica FTTH/GPON</b> sobre un mapa y calcular su <b>presupuesto óptico</b> en vivo. En cada tramo el diseñador elige qué splitter colocar —balanceado o desbalanceado— y el motor compara las opciones y recomienda la mejor.',
+    ftth_f1:'<b>Motor óptico propio</b>Sustituye la hoja de cálculo del ISP y la reproduce con pruebas de referencia.',
+    ftth_f2:'<b>Mapa + PWA offline</b>Edición geográfica e importación KMZ; funciona en campo sin señal.',
+    ftth_f3:'<b>Multiempresa seguro</b>PostgreSQL + PostGIS con Row-Level Security por empresa.',
+    ftth_f4:'<b>Arquitectura hexagonal</b>Monorepo TypeScript con TDD y más de 700 pruebas automatizadas.',
+    ftth_cta:'Abrir FTTH Planner ↗', ftth_host:'Alojado temporalmente en ftth.jemartinez.dev', pon_cap:'Presupuesto por ramal',
+    pon_title:'Red PON de ejemplo: la OLT alimenta un splitter desbalanceado 70/30 y dos cajas NAP; ambas ONT reciben potencia dentro del presupuesto.',
+    inv_t:'Invitaciones Digitales', inv_p:'Plataforma para crear invitaciones de boda, XV años o bautizo: el cliente elige plantilla y tema, llena sus datos con vista previa en vivo, paga y publica su invitación en su propio subdominio.',
+    wisp_t:'WispRoute', wisp_p:'SaaS multiempresa para proveedores de internet (ISP/WISP): red MikroTik, clientes, facturación, cobranza, inventario, tickets y pagos, con app móvil para técnicos y cobradores.',
+    vpay_t:'ValiPago', vpay_p:'Validación de pagos por transferencia: el cliente sube su comprobante, el dueño lo valida y caja emite el recibo en PDF o ticket térmico.',
+    loan_t:'Préstamos y ventas a plazos', loan_p:'Administración de préstamos y ventas financiadas: ofertas y firma de acuerdos, calendario de pagos, portal del deudor y avisos por WhatsApp.',
+    demo_btn:'Solicitar demo',
+    wa_demo_wisp:'Hola Mateo, vi tu portafolio y me gustaría ver una demo de WispRoute.',
+    wa_demo_vpay:'Hola Mateo, vi tu portafolio y me gustaría ver una demo de ValiPago.',
+    wa_demo_loan:'Hola Mateo, vi tu portafolio y me gustaría ver una demo del sistema de préstamos.',
     contact_h:'¿Construimos algo <span class="grad-text">juntos</span>?', contact_p:'Estoy abierto a nuevas oportunidades y colaboraciones. Conversemos sobre tu proyecto.', contact_cv:'📄 Ver CV completo',
     wa_msg:'Hola Mateo, vi tu portafolio y me gustaría conversar contigo.',
     ph_main:'Principal', ph_alt:'Alterno', ph_call:'Llamar',
@@ -586,7 +709,24 @@ const resources = {
     proj2_t:'SOFI — Financial Operations', proj2_p:'End-to-end system for loans, disbursement, collections, investment and accounting of a financial operator.',
     proj3_t:'Regulatory Compliance — PEMEX', proj3_p:'Regulatory-compliance platform and collaborative system for the oil & gas sector, with advanced reports and visualizations.',
     proj4_t:'ADDIN — Investment Manager', proj4_p:'Control and management of investors, investments, commissions and capital payments for an investment firm.',
-    proj5_t:'SIGEFOR — Supplies Management', proj5_p:'Personal project in progress: a supplies & parts (fornituras) management system built entirely with AI using <b>Claude Code</b> as a pair-programming partner.', proj5_wip:'In progress',
+    proj5_t:'SIGEFOR — Supplies Management', proj5_p:'A supplies & parts (fornituras) management system with <b>QR-code</b> traceability, built with AI using <b>Claude Code</b> as a pair-programming partner.', proj5_wip:'In progress',
+    role_creator:'Creator · built from scratch', role_live:'Live', role_collab:'Collaboration', role_private:'Private demo',
+    grp_collab:'Collaborations', grp_private:'Own systems · private demo on request', grp_work:'Enterprise projects',
+    ftth_p:'SaaS platform to <b>design FTTH/GPON fiber networks</b> on a map and compute their <b>optical link budget</b> live. On each span the designer picks which splitter to place — balanced or unbalanced — and the engine compares the options and recommends the best one.',
+    ftth_f1:'<b>Own optical engine</b>Replaces the ISP spreadsheet and matches it with golden tests.',
+    ftth_f2:'<b>Map + offline PWA</b>Geographic editing and KMZ import; works in the field with no signal.',
+    ftth_f3:'<b>Secure multi-tenant</b>PostgreSQL + PostGIS with per-company Row-Level Security.',
+    ftth_f4:'<b>Hexagonal architecture</b>TypeScript monorepo with TDD and 700+ automated tests.',
+    ftth_cta:'Open FTTH Planner ↗', ftth_host:'Temporarily hosted at ftth.jemartinez.dev', pon_cap:'Budget per branch',
+    pon_title:'Sample PON network: the OLT feeds an unbalanced 70/30 splitter and two NAP boxes; both ONTs receive power within budget.',
+    inv_t:'Digital Invitations', inv_p:'Platform to create wedding, quinceañera or baptism invitations: the customer picks a template and theme, fills in their details with a live preview, pays and publishes the invitation on its own subdomain.',
+    wisp_t:'WispRoute', wisp_p:'Multi-tenant SaaS for internet service providers (ISP/WISP): MikroTik network, customers, billing, collections, inventory, tickets and payments, with a mobile app for technicians and collectors.',
+    vpay_t:'ValiPago', vpay_p:'Bank-transfer payment validation: the customer uploads their receipt, the owner validates it and the cashier issues the receipt as a PDF or thermal ticket.',
+    loan_t:'Loans & installment sales', loan_p:'Management of loans and financed sales: offers and agreement signing, payment schedules, a borrower portal and WhatsApp notifications.',
+    demo_btn:'Request a demo',
+    wa_demo_wisp:'Hi Mateo, I saw your portfolio and I\'d like to see a WispRoute demo.',
+    wa_demo_vpay:'Hi Mateo, I saw your portfolio and I\'d like to see a ValiPago demo.',
+    wa_demo_loan:'Hi Mateo, I saw your portfolio and I\'d like to see a demo of the loans system.',
     contact_h:'Shall we build something <span class="grad-text">together</span>?', contact_p:'I\'m open to new opportunities and collaborations. Let\'s talk about your project.', contact_cv:'📄 View full CV',
     wa_msg:'Hi Mateo, I saw your portfolio and I\'d love to chat with you.',
     ph_main:'Primary', ph_alt:'Secondary', ph_call:'Call',
@@ -646,8 +786,8 @@ function updateDOM(){
   renderExperience(lang);
   document.documentElement.lang = lang;
   document.getElementById('langBtn').lastChild.textContent = lang==='es' ? ' EN' : ' ES';
-  const waMsg = encodeURIComponent(i18next.t('wa_msg'));
   document.querySelectorAll('[data-wa]').forEach(a=>{
+    const waMsg = encodeURIComponent(i18next.t(a.getAttribute('data-wa-msg') || 'wa_msg'));
     a.href = 'https://wa.me/' + a.getAttribute('data-wa') + '?text=' + waMsg;
   });
 }
