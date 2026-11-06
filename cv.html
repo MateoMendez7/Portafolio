@@ -170,9 +170,22 @@
     <section class="sec">
       <div class="sec-title"><span class="bar"></span> <span data-i18n="h_projects">Proyectos personales</span></div>
       <div class="edu">
+        <div class="d">FTTH Planner · <a href="https://ftth.jemartinez.dev" style="color:inherit">ftth.jemartinez.dev</a></div>
+        <div class="i" data-i18n="cv_ftth_p">Creador, desarrollado desde cero. SaaS para diseñar redes de fibra FTTH/GPON sobre mapa y calcular su presupuesto óptico; <b>TypeScript, NestJS, React, PostGIS</b>, PWA offline y arquitectura hexagonal.</div>
+        <div class="y" data-i18n="cv_live">(en producción)</div>
+      </div>
+      <div class="edu">
+        <div class="d" data-i18n="cv_inv_t">Invitaciones Digitales</div>
+        <div class="i" data-i18n="cv_inv_p">Colaboración. Plataforma de invitaciones digitales con plantillas, vista previa en vivo, pago y publicación; <b>Astro, SolidJS, Hono, PostgreSQL</b>.</div>
+      </div>
+      <div class="edu">
         <div class="d" data-i18n="cv_proj5_t">SIGEFOR — Gestión de Fornituras</div>
-        <div class="i" data-i18n="cv_proj5_p">Sistema de gestión de fornituras (insumos y refacciones) con <b>Angular + Ionic</b>, backend <b>.NET</b> y <b>SQL Server</b>, construido íntegramente con IA usando <b>Claude Code</b>.</div>
+        <div class="i" data-i18n="cv_proj5_p">Colaboración. Gestión de fornituras con trazabilidad por QR; <b>Angular + Ionic</b>, backend <b>.NET</b> y <b>SQL Server</b>, construido con IA usando <b>Claude Code</b>.</div>
         <div class="y" data-i18n="in_progress">(en curso)</div>
+      </div>
+      <div class="edu">
+        <div class="d" data-i18n="cv_priv_t">Sistemas propios · demo privada</div>
+        <div class="i" data-i18n="cv_priv_p"><b>WispRoute</b> (administración de ISP/WISP), <b>ValiPago</b> (validación de pagos por transferencia) y un sistema de <b>préstamos y ventas a plazos</b>; NestJS, Angular/React, PostgreSQL.</div>
       </div>
     </section>
   </main>
@@ -236,7 +249,11 @@ const resources = {
     h_edu:'Formación académica', edu_msc_t:'Maestría en Tecnologías de Información y Comunicación', edu_msc_i:'Especialidad en Desarrollo de Software — Instituto Tecnológico de Villahermosa',
     edu_bsc_t:'Ingeniería en Sistemas Computacionales', edu_bsc_i:'Instituto Tecnológico de Villahermosa',
     h_certs:'Certificaciones & formación continua', in_progress:'(en curso)', cert_db:'Diseño de Bases de Datos Relacionales · Udemy',
-    h_projects:'Proyectos personales', cv_proj5_t:'SIGEFOR — Gestión de Fornituras', cv_proj5_p:'Sistema de gestión de fornituras (insumos y refacciones) con <b>Angular + Ionic</b>, backend <b>.NET</b> y <b>SQL Server</b>, construido íntegramente con IA usando <b>Claude Code</b>.'
+    h_projects:'Proyectos', cv_live:'(en producción)',
+    cv_ftth_p:'Creador, desarrollado desde cero. SaaS para diseñar redes de fibra FTTH/GPON sobre mapa y calcular su presupuesto óptico; <b>TypeScript, NestJS, React, PostGIS</b>, PWA offline y arquitectura hexagonal.',
+    cv_inv_t:'Invitaciones Digitales', cv_inv_p:'Colaboración. Plataforma de invitaciones digitales con plantillas, vista previa en vivo, pago y publicación; <b>Astro, SolidJS, Hono, PostgreSQL</b>.',
+    cv_proj5_t:'SIGEFOR — Gestión de Fornituras', cv_proj5_p:'Colaboración. Gestión de fornituras con trazabilidad por QR; <b>Angular + Ionic</b>, backend <b>.NET</b> y <b>SQL Server</b>, construido con IA usando <b>Claude Code</b>.',
+    cv_priv_t:'Sistemas propios · demo privada', cv_priv_p:'<b>WispRoute</b> (administración de ISP/WISP), <b>ValiPago</b> (validación de pagos por transferencia) y un sistema de <b>préstamos y ventas a plazos</b>; NestJS, Angular/React, PostgreSQL.'
   }},
   en:{ translation:{
     tb_hint:'To save as PDF: click the button or use Ctrl/Cmd + P → “Save as PDF”', tb_download:'🖨️ Download PDF',
@@ -250,7 +267,11 @@ const resources = {
     h_edu:'Education', edu_msc_t:'MSc in Information and Communication Technologies', edu_msc_i:'Software Development specialty — Instituto Tecnológico de Villahermosa',
     edu_bsc_t:'BSc in Computer Systems Engineering', edu_bsc_i:'Instituto Tecnológico de Villahermosa',
     h_certs:'Certifications & continuous learning', in_progress:'(in progress)', cert_db:'Relational Database Design · Udemy',
-    h_projects:'Personal projects', cv_proj5_t:'SIGEFOR — Supplies Management', cv_proj5_p:'A supplies & parts (fornituras) management system with <b>Angular + Ionic</b>, a <b>.NET</b> backend and <b>SQL Server</b>, built entirely with AI using <b>Claude Code</b>.'
+    h_projects:'Projects', cv_live:'(live)',
+    cv_ftth_p:'Creator, built from scratch. SaaS to design FTTH/GPON fiber networks on a map and compute their optical link budget; <b>TypeScript, NestJS, React, PostGIS</b>, offline PWA and hexagonal architecture.',
+    cv_inv_t:'Digital Invitations', cv_inv_p:'Collaboration. Digital-invitation platform with templates, live preview, payment and publishing; <b>Astro, SolidJS, Hono, PostgreSQL</b>.',
+    cv_proj5_t:'SIGEFOR — Supplies Management', cv_proj5_p:'Collaboration. Supplies management with QR traceability; <b>Angular + Ionic</b>, a <b>.NET</b> backend and <b>SQL Server</b>, built with AI using <b>Claude Code</b>.',
+    cv_priv_t:'Own systems · private demo', cv_priv_p:'<b>WispRoute</b> (ISP/WISP management), <b>ValiPago</b> (bank-transfer payment validation) and a <b>loans & installment sales</b> system; NestJS, Angular/React, PostgreSQL.'
   }}
 };
 
